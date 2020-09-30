@@ -1,0 +1,106 @@
+<!-- <div class="main-container"> -->
+<header class="header-6">
+  <div class="branding">
+    <a routerLink="/css" class="nav-link">
+      <clr-icon shape="happy-face"></clr-icon>
+      <span class="title">CSS예제</span>
+    </a>
+  </div>
+  <div class="header-nav" [clr-nav-level]="1">
+    <!-- <a routerLink="backbone" class="active nav-link" routerLinkActive="active"><span class="nav-text">망도</span></a> -->
+    <clr-dropdown [clrCloseMenuOnItemClick]="true">
+      <button class="btn btn-link" clrDropdownToggle>
+        CSS예제
+      </button>
+      <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <label class="dropdown-header" aria-hidden="true">CSS 예제목록</label>
+        <!-- <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+          <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div> -->
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+          <button clrDropdownTrigger>CSS기법1</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="shadow" routerLinkActive="active">음영</button>
+            <button clrDropdownItem routerLink="joinatom" routerLinkActive="active">원자결합</button>
+            <button clrDropdownItem routerLink="joinatomII" routerLinkActive="active">원자결합II</button>
+            <button clrDropdownItem routerLink="diamond-grid" routerLinkActive="active">다아어몬드 격자</button>
+            <button clrDropdownItem routerLink="urban-faction" routerLinkActive="active">도시패션</button>
+            <button clrDropdownItem routerLink="flip-hover-3d" routerLinkActive="active">윤동주 진달래꽃</button>
+            <button clrDropdownItem routerLink="flip-book" routerLinkActive="active">서울안내</button>
+            <button clrDropdownItem routerLink="folder" routerLinkActive="active">사진첩</button>
+            <button clrDropdownItem routerLink="clip-path" routerLinkActive="active">이미지형틀</button>
+            <button clrDropdownItem routerLink="clip-path-image" routerLinkActive="active">부분그림찿기</button>
+            <button clrDropdownItem routerLink="clip-path-circle" routerLinkActive="active">글씨찿기</button>
+            <button clrDropdownItem routerLink="scratch-effect" routerLinkActive="active">배경지우기</button>
+            <button clrDropdownItem routerLink="focus" routerLinkActive="active">Foucs</button>
+            <button clrDropdownItem routerLink="wood_texture" routerLinkActive="active">그림분할</button>
+            <button clrDropdownItem routerLink="sliding-menu" routerLinkActive="active">Sliding Menu</button>
+            <button clrDropdownItem routerLink="split-image" routerLinkActive="active">부채살그림</button>
+            <button clrDropdownItem routerLink="tweenmax" routerLinkActive="active">TweenMax</button>
+
+
+            <!-- <clr-dropdown>
+                <button clrDropdownTrigger>Css Shadow</button>
+                <clr-dropdown-menu clrPosition="left-top">
+                  <button clrDropdownItem>Css Shadow</button>
+                </clr-dropdown-menu>
+              </clr-dropdown> -->
+          </clr-dropdown-menu>
+        </clr-dropdown>
+        <clr-dropdown>
+          <button clrDropdownTrigger>CSS기법2</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="css2/multi-step" routerLinkActive="active">다중처리등록</button>
+            <button clrDropdownItem routerLink="css2/flight-loader" routerLinkActive="active">잠시대기</button>
+            <button clrDropdownItem routerLink="css2/eye-follow" routerLinkActive="active">마우스따라가기</button>
+            <button clrDropdownItem routerLink="css2/turblence" routerLinkActive="active">잔물결</button>
+            <button clrDropdownItem routerLink="css2/panzoom" routerLinkActive="active">PanZoom</button>
+
+          </clr-dropdown-menu>
+        </clr-dropdown>
+        <!-- <div clrDropdownItem>CSS기법2</div> -->
+      </clr-dropdown-menu>
+    </clr-dropdown>
+
+    <clr-dropdown [clrCloseMenuOnItemClick]="false">
+      <button class="btn btn-link" clrDropdownToggle>
+        Landing Page
+      </button>
+      <clr-dropdown-menu *clrIfOpen>
+        <clr-dropdown>
+          <button clrDropdownTrigger>화면</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="landing_page/sliding-text" routerLinkActive="active">Sliding
+              Text</button>
+
+            <button clrDropdownItem routerLink="landing_page/ar-3d-effect" routerLinkActive="active">AR 3D 모델</button>
+            <button clrDropdownItem routerLink="landing_page/image-slider" routerLinkActive="active">배경바꾸기</button>
+            <button clrDropdownItem routerLink="landing_page/login-form" routerLinkActive="active">동적로그인폼</button>
+            <button clrDropdownItem routerLink="landing_page/image-hover" routerLinkActive="active">그림조각</button>
+            <button clrDropdownItem routerLink="landing_page/mix-blend-mode-hue"
+              routerLinkActive="active">배경색바꾸기</button>
+            <button clrDropdownItem routerLink="landing_page/scroll-effect" routerLinkActive="active">화면스크롤</button>
+            <button clrDropdownItem routerLink="landing_page/car-animation" routerLinkActive="active">자동차판매</button>
+            <button clrDropdownItem routerLink="landing_page/fullpage-scroll" routerLinkActive="active">페이지스크롤</button>
+            <button clrDropdownItem routerLink="landing_page/tab-menu" routerLinkActive="active">메뉴내용물 슬라이드</button>
+            <button clrDropdownItem routerLink="landing_page/ecommerce" routerLinkActive="active">쇼핑몰</button>
+          </clr-dropdown-menu>
+        </clr-dropdown>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+
+  </div>
+  <div class="header-actions">
+    <a routerLink="/home" class="nav-link nav-icon" aria-label="settings">
+      <i class="fas fa-arrow-left"></i>
+      <!-- <clr-icon shape="undo"></clr-icon> -->
+    </a>
+  </div>
+</header>
+<div class="content-container">
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- </div> -->

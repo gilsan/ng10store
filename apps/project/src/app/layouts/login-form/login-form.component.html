@@ -1,0 +1,48 @@
+ <section>
+   <div class="progressbar">
+     <!-- progressbar -->
+     <ul id="progressbar">
+       <li class="active">시작</li>
+       <li #login>로그인</li>
+       <li #signup>등록</li>
+     </ul>
+   </div>
+   <div class="login-container" #container>
+
+     <div class="user signinBx">
+       <div class="imgBx">
+         <img [src]="'assets/online-tutorial/casset_tape.jpg'" alt="">
+       </div>
+
+       <div class="formBx">
+         <form action="">
+           <h2>로그인</h2>
+           <input type="text" name="" placeholder="사용자명">
+           <input type="password" name="" placeholder="암호">
+           <input type="submit" name="" value="확인">
+           <p class="signup">계정이 없으신가요? <a (click)="toggle('signup')">Sign Up.</a></p>
+         </form>
+       </div>
+     </div>
+     <!--   ---------------------------        -->
+     <div class="user signupBx">
+       <div class="formBx">
+         <form action="">
+           <h2>등록</h2>
+           <input type="text" name="" placeholder="사용자명">
+           <input type="email" name="" placeholder="이메일">
+           <input type="password" name="" placeholder="암호생성">
+           <input type="password" name="" placeholder="암호확인">
+           <input type="submit" name="" value="확인">
+           <p class="signup">계정 있나요? <a (click)="toggle('login')">Log In.</a></p>
+         </form>
+       </div>
+       <div class="imgBx">
+         <img [src]="'assets/online-tutorial/night_moutain.jpg'" alt="">
+       </div>
+       <!--  -------------------------------------    -->
+     </div>
+
+
+   </div>
+ </section>

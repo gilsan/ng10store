@@ -1,0 +1,31 @@
+.ar-demo {
+  height: 90vh;
+  width: 100%;
+
+  model-viewer {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.btn-container {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  border: none;
+  background: #edda73;
+  height: 40px;
+  width: 150px;
+  margin: 5px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+button:focus {
+  outline: none;
+}

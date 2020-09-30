@@ -1,0 +1,75 @@
+.scroll-container {
+  position: relative;
+  width: 100%;
+  height: 93vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  .scroll-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .scroll-content {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      max-width: 700px;
+
+      h2 {
+        background: #fff;
+        color: #111;
+        font-weight: 600;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 2em;
+      }
+
+      p {
+
+        background: #fff;
+        color: #111;
+        font-weight: 600;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 12px;
+        margin-top: 10px;
+      }
+
+    }
+
+    &:nth-child(1) {
+      background: #f00 url('../../../assets/online-tutorial/img1.jpg');
+      background-repeat: none;
+      background-size: cover;
+      background-attachment: fixed;
+      /* important */
+    }
+
+    &:nth-child(2) {
+      background: #0f0 url('../../../assets/online-tutorial/img2.jpg');
+      background-repeat: none;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    &:nth-child(3) {
+      background: #ff0 url('../../../assets/online-tutorial/img3.jpg');
+      background-repeat: none;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    &:nth-child(4) {
+      background: #00f url('../../../assets/online-tutorial/palace.jpg');
+      background-repeat: none;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+
+  }
+
+}

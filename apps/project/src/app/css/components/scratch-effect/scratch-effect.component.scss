@@ -1,0 +1,31 @@
+body {
+  --x: 20px;
+  --y: 200px;
+}
+
+.scratch-effect-container {
+  width: 100vw;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+  background: repeating-linear-gradient(0deg, #fff 0%, #fff 50%, #000 50%, #000 100%),
+    repeating-linear-gradient(90deg, #fff 0%, #fff 50%, #000 50%, #000 100%);
+  background-size: 30px 30px;
+  background-blend-mode: difference;
+  overflow: hidden;
+}
+
+span {
+  display: block;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #000;
+  background: url(../../../../assets/online-tutorial/travel_car.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  // left: var(--x);
+  // top: var(--y);
+}

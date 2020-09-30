@@ -1,0 +1,72 @@
+:host {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.wood-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: #000;
+
+}
+
+.wood-about {
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  h2,
+  p {
+    color: #fff;
+  }
+}
+
+.figure {
+  width: 100%;
+  height: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: url('../../../../assets/online-tutorial/palace.jpg');
+    background-size: cover;
+    transform-origin: top;
+    transition: 0.5s;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('../../../../assets/online-tutorial/palace.jpg');
+    background-size: cover;
+    transform-origin: bottom;
+    transition: 0.5s;
+    background-position: 377px;
+  }
+
+}
+
+.wood-box:hover .figure:before {
+  transform: rotateX(90deg) translateY(50%);
+}
+
+.wood-box:hover .figure:after {
+  transform: rotateX(90deg) translateY(-50%);
+}

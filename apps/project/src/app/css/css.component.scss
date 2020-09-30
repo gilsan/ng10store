@@ -1,0 +1,27 @@
+// header {
+//   position: sticky;
+//   z-index: 1000;
+// }
+
+.fa-arrow-left {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+button {
+  color: #fff;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+
+  &-toggle {
+    color: #fff;
+
+    &:hover {
+      color: lightcoral;
+    }
+  }
+}

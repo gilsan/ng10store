@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.hostlistener {
+  padding: 10px 10px;
+  border: 1px solid black;
+
+}
+
+.letter {
+  font-weight: bold;
+  transform: translateY(1.2);
+}

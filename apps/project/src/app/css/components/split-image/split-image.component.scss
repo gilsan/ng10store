@@ -1,0 +1,111 @@
+.split-image-container {
+  top: 20px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  span {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+
+  }
+
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    display: none;
+  }
+
+
+
+  li.active {
+    display: inline;
+    animation: animate 5s linear;
+  }
+}
+
+@keyframes animate {
+  0% {
+    height: 0px;
+
+  }
+
+  50% {
+    height: 350px;
+
+  }
+
+  100% {
+    height: 538px;
+
+  }
+}
+
+.splite-title {
+  margin-top: 50px;
+  width: 100%;
+  background: #000;
+
+  h2 {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0%;
+      width: 120%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent 0%, #000 5%, #000 100%);
+      animation: animate 1s linear infinite;
+    }
+  }
+}
+
+@keyframes animate {
+  0% {
+    left: -20%;
+  }
+
+  50% {
+    left: 120%;
+  }
+
+  100% {
+    left: -20%;
+  }
+}
+
+@keyframes split-image {
+  0% {
+    border-top-width: 50%;
+    border-bottom-width: 50%;
+
+  }
+
+
+  100% {
+    border-top-width: 0%;
+    border-bottom-width: 0%;
+
+  }
+}

@@ -1,0 +1,20 @@
+<!-- <div class="main">
+
+</div> -->
+
+<div class="container">
+  <div class="circle circle1" ngDraggable></div>
+  <div class="circle circle2" ngDraggable></div>
+
+</div>
+<svg>
+  <filter id="gooey">
+    <feGaussianBlur in="sourceGraphic" stdDeviation="10" />
+    <feColorMatrix values="
+     1 0 0 0 0
+     0 1 0 0 0
+     0 0 1 0 0
+     0 0 0 20 -10
+     " />
+  </filter>
+</svg>

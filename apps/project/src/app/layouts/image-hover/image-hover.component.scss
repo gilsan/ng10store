@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 92vh;
+  background: #111;
+}
+
+.container {
+  height: 92vh;
+  width: 800px;
+  height: 500px;
+  background: #222;
+}
+
+.clip {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.clip1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../assets/online-tutorial/img1.jpg') no-repeat center;
+  background-size: cover;
+  clip-path: polygon(0 0, 49% 0, 14% 100%, 0% 100%);
+}
+
+.clip2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../assets/online-tutorial/img2.jpg') no-repeat center;
+  background-size: cover;
+  clip-path: polygon(90% 0, 49% 0, 14% 100%, 60% 100%);
+}
+
+.clip3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../assets/online-tutorial/img3.jpg') no-repeat center;
+  background-size: cover;
+  clip-path: polygon(90% 0, 100% 0, 100% 100%, 60% 100%);
+}
+
+
+
+.fullclip {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.content {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 70%;
+  padding: 5px 10px;
+  background: lightpink;
+  transition: 0.5s;
+  border-radius: 20px;
+}
+
+.main-content {
+  bottom: 0;
+  transition: 0.5s;
+}

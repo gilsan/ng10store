@@ -1,0 +1,74 @@
+<header class="header-6">
+  <div class="branding">
+    <a routerLink="/css" class="nav-link">
+      <clr-icon shape="happy-face"></clr-icon>
+      <span class="title">앵귤러</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    <!-- <a routerLink="backbone" class="active nav-link" routerLinkActive="active"><span class="nav-text">망도</span></a> -->
+    <clr-dropdown [clrCloseMenuOnItemClick]="true">
+      <button class="btn btn-link" clrDropdownToggle>
+        컴포넌트
+      </button>
+      <clr-dropdown-menu clrPosition="bottom-right" *clrIfOpen>
+        <!-- <label class="dropdown-header" aria-hidden="true">Core</label> -->
+        <!-- <div aria-label="Dropdown header Action 1" clrDropdownItem>Action 1</div>
+        <div aria-label="Dropdown header Disabled Action" [clrDisabled]="true" clrDropdownItem>Disabled Action</div> -->
+        <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+        <clr-dropdown>
+          <button clrDropdownTrigger>컴포넌트1</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="hostlistener" routerLinkActive="active">Directive</button>
+            <button clrDropdownItem routerLink="local-storage" routerLinkActive="active">LocalStorage</button>
+            <!-- <button clrDropdownItem routerLink="test" routerLinkActive="active">시험용</button> -->
+            <!-- <button clrDropdownItem routerLink="joinatom" routerLinkActive="active">원자결합</button>
+            <button clrDropdownItem routerLink="joinatomII" routerLinkActive="active">원자결합II</button> -->
+
+          </clr-dropdown-menu>
+        </clr-dropdown>
+        <clr-dropdown>
+          <button clrDropdownTrigger>컴포넌트2</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="components/pixijs" routerLinkActive="active">피카추</button>
+          </clr-dropdown-menu>
+        </clr-dropdown>
+        <!-- <div clrDropdownItem>컴포넌트2</div> -->
+      </clr-dropdown-menu>
+    </clr-dropdown>
+
+    <clr-dropdown [clrCloseMenuOnItemClick]="false">
+      <button class="btn btn-link" clrDropdownToggle>
+        Utility
+      </button>
+      <clr-dropdown-menu *clrIfOpen>
+        <clr-dropdown>
+          <button clrDropdownTrigger>유틸리티</button>
+          <clr-dropdown-menu>
+            <button clrDropdownItem routerLink="sweet-alert" routerLinkActive="active">알림창</button>
+
+            <!-- <button clrDropdownItem routerLink="ar-3d-effect" routerLinkActive="active">AR 3D 모델</button>
+            <button clrDropdownItem routerLink="image-slider" routerLinkActive="active">배경바꾸기</button>
+            <button clrDropdownItem routerLink="login-form" routerLinkActive="active">동적로그인폼</button>
+            <button clrDropdownItem routerLink="image-hover" routerLinkActive="active">그림조각</button>
+            <button clrDropdownItem routerLink="mix-blend-mode-hue" routerLinkActive="active">배경색바꾸기</button>
+            <button clrDropdownItem routerLink="scroll-effect" routerLinkActive="active">화면스크롤</button>
+            <button clrDropdownItem routerLink="car-animation" routerLinkActive="active">자동차판매</button> -->
+          </clr-dropdown-menu>
+        </clr-dropdown>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+
+
+  </div>
+  <div class="header-actions">
+    <a routerLink="/home" class="nav-link nav-icon" aria-label="settings">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+  </div>
+</header>
+<div class="content-container">
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
+</div>

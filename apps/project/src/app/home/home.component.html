@@ -1,0 +1,30 @@
+ <mat-sidenav-container fullscreen>
+   <mat-sidenav #start mode="push" [(opened)]="opened">
+     <app-sidebar-menu [menu]="menu" [imageDesc]="imageDesc" (selected)="toggle()">
+     </app-sidebar-menu>
+   </mat-sidenav>
+
+   <mat-toolbar color="primary" class="toolbar" mat-elevation-z8>
+     <button mat-icon-button (click)="toggle()">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <div class="bar-menu" id="bar-menu">
+
+       <ul class="cards">
+         <li class="card--1" [routerLink]="['/css']">CSS</li>
+         <li class="card--1" [routerLink]="['/ngschool']">Angular School</li>
+       </ul>
+     </div>
+   </mat-toolbar>
+
+   <div class="content">
+     <router-outlet></router-outlet>
+   </div>
+   <div class="center">
+     <ngx-typed-js [typeSpeed]="100" [backDelay]="100" [loop]="true" [loopCount]="3" [showCursor]="true"
+       (completed)="completed()" [strings]="contents">
+       <h1 class="typing"></h1>,
+     </ngx-typed-js>
+   </div>
+
+ </mat-sidenav-container>

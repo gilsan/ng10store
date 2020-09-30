@@ -1,0 +1,11 @@
+<div class="ar-demo">
+  <model-viewer [src]="'assets/ReadHut/RobotExpressive.glb'" skybox-image="../../../assets/ReadHut/stadium.hdr"
+    animation-name="Running" autoplay auto-rotate camera-controls ar id="ar-model" #model>
+  </model-viewer>
+
+  <div class="btn-container">
+    <button type="button" (click)="stop()">동작그만</button>
+    <button type="button" (click)="run()">달려라</button>
+    <button type="button" (click)="wave()">춤추기</button>
+  </div>
+</div>

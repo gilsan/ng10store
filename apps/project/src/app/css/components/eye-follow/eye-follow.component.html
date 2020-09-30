@@ -1,0 +1,18 @@
+<div class="eye-main">
+  <div class="eye-container">
+    <div class="face" #face>
+      <div class="eyes">
+        <span class="eye" #eye></span>
+        <span class="eye" #eye></span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <audio [src]="'assets/sounds/hey.mp3'" class="audio" #audio></audio>
+    <div class="center">
+      <ngx-typed-js [typeSpeed]="100" [backDelay]="100" [loop]="true" [loopCount]="3" [showCursor]="true"
+        [strings]="contents">
+        <h1 class="typing"></h1>,
+      </ngx-typed-js>
+    </div>
+  </div>
