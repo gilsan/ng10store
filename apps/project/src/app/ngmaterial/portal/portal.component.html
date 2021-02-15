@@ -1,0 +1,15 @@
+
+  <mat-form-field appearance="fill">
+    <mat-label>선택</mat-label>
+    <mat-select  (selectionChange)="changeSelect(portal.value)" name="food" #portal>
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<br><br>
+<div class="example-portal-outlet">
+  <ng-container [cdkPortalOutlet]="selectedPortal" ></ng-container>
+</div>
+<ng-template #templatePortalContent>Hello, this is a template portal</ng-template>
+<div #domPortalContent>Hello, this is a DOM portal</div>

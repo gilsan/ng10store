@@ -1,0 +1,33 @@
+/** 
+transform, top, left properties 배우기
+ 부모위치를 relative 한후 자식은 위치를 absolute 한다.
+**/
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba($color-primary, 0.5), rgba($color-primary-light, 0.5)), url(../../../../assets/natour/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.logo {
+  height: 3.5rem;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  /*  부모위치를 기준으로 함.  */
+  left: 50%;
+  /*  */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

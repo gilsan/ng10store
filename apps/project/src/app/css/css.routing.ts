@@ -36,6 +36,10 @@ import { TurbulenceComponent } from './components/turbulence/turbulence.componen
 import { TabMenuComponent } from '../layouts/tab-menu/tab-menu.component';
 import { EcommerceComponent } from '../layouts/ecommerce/ecommerce.component';
 import { PanzoomComponent } from './components/panzoom/panzoom.component';
+import { NatourComponent } from '../layouts/natour/natour.component';
+import { SnapEffectComponent } from './components/snap-effect/snap-effect.component';
+import { FileuploadComponent } from '../layouts/fileupload/fileupload.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 
 const routes: Routes = [
@@ -56,8 +60,8 @@ const routes: Routes = [
       { path: 'focus', component: FocusComponent },
       { path: 'wood_texture', component: WoodComponent },
       { path: 'sliding-menu', component: SlidingMenuComponent },
-
       { path: 'split-image', component: SplitImageComponent },
+      { path: 'register-form', component: RegisterFormComponent },
       {
         path: 'css2', children: [
           { path: 'multi-step', component: MultiStepComponent },
@@ -65,6 +69,7 @@ const routes: Routes = [
           { path: 'eye-follow', component: EyeFollowComponent },
           { path: 'turblence', component: TurbulenceComponent },
           { path: 'panzoom', component: PanzoomComponent },
+          { path: 'snap-effect', component: SnapEffectComponent }
 
         ]
       },
@@ -82,6 +87,8 @@ const routes: Routes = [
           { path: 'fullpage-scroll', component: FullpageScrollComponent },
           { path: 'tab-menu', component: TabMenuComponent },
           { path: 'ecommerce', component: EcommerceComponent },
+          { path: 'fileupload', component: FileuploadComponent },
+          { path: 'natour', component: NatourComponent },
         ]
       }
 

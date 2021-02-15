@@ -1,0 +1,397 @@
+<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+  <label for="navi-toggle" class="navigation__button">
+    <span class="navigation__icon">&nbsp;</span>
+  </label>
+
+  <div class="navigation__background">&nbsp;</div>
+
+  <nav class="navigation__nav">
+    <ul class="navigation__list">
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natous</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benefits</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
+      <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+    </ul>
+  </nav>
+
+</div>
+
+<header class="header">
+  <div class="logo-box">
+    <img [src]="'assets/natour/logo-white.png'" alt="Logo" class="logo">
+  </div>
+  <div class="text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary-main">가을야외활동</span>
+      <span class="heading-primary-sub">상쾌한 공기와 결실</span>
+    </h1>
+    <a href="#section-tours" class="btn btn-white btn-animated">가자 앵귤러</a>
+  </div>
+</header>
+<main>
+  <section class="section-about">
+    <div class="u-center-text u-margin-bottom-big">
+      <h2 class="heading-secondary">
+        신나는 모험여행 !!!!
+      </h2>
+    </div>
+
+    <div class="row">
+      <div class="col-1-of-2">
+        <h3 class="heading-tertiary u-margin-bottom-small">
+          자연과 보내는 이 가을에 만나요 !!!!
+        </h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero repellat
+          quis consequatur ducimus quam nisi exercitationem omnis earum qui.
+        </p>
+
+        <h3 class="heading-teritiary u-margin-bottom-samll">
+          Live adventures like you never have before
+        </h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nulla deserunt voluptatum nam.
+        </p>
+
+        <a href="#" class="btn-text">좀더 알기 &rarr;</a>
+
+      </div>
+      <div class="col-1-of-2">
+        <div class="composition">
+          <img [src]="'assets/natour/nat-1-large.jpg'" alt="Photo 1" class="composition__photo  composition__photo--p1">
+          <img [src]="'assets/natour/nat-2-large.jpg'" alt="Photo 2" class="composition__photo  composition__photo--p2">
+          <img [src]="'assets/natour/nat-3-large.jpg'" alt="Photo 2" class="composition__photo  composition__photo--p3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-features">
+
+    <div class="row">
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-world"></i>
+          <h3 class="heading-teritiary u-margin-bottom-small">
+            세계 여행
+          </h3>
+          <p class="featuer-box__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-compass"></i>
+          <h3 class="heading-teritiary u-margin-bottom-small">
+            자연을 만나요 !!!!
+          </h3>
+          <p class="featuer-box__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-map"></i>
+          <h3 class="heading-teritiary u-margin-bottom-small">
+            나와 만나는 시간
+          </h3>
+          <p class="featuer-box__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-heart"></i>
+          <h3 class="heading-teritiary u-margin-bottom-small">
+            건강한 생활
+          </h3>
+          <p class="featuer-box__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tours" id="section-tours">
+    <div class="u-center-text u-margin-bottom-big">
+      <div class="heading-secondary">
+        모든 이 들의 기원 하는 여행 !!!!
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--1">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading--span--1">가고싶은 바다</span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>3일 여행</li>
+                <li>최대 30명</li>
+                <li>안내원2명</li>
+                <li>코지 호텔숙박</li>
+                <li>난이도: 쉬움</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card__side card__side--back card__side--back-1">
+            <div class="card__cta">
+              <div class="card__price--box">
+                <p class="card__price--only">Only</p>
+                <p class="card__price--value">$297</p>
+              </div>
+              <a href="#popup" class="btn btn--white">예약</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--   -->
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--2">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading--span--2">숲속걷기</span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>7일 여행</li>
+                <li>최대 40명</li>
+                <li>안내원6명</li>
+                <li>야외숙박</li>
+                <li>난이도: 중간</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card__side card__side--back card__side--back-2">
+            <div class="card__cta">
+              <div class="card__price--box">
+                <p class="card__price--only">Only</p>
+                <p class="card__price--value">$497</p>
+              </div>
+              <a href="#popup" class="btn btn--white">예약</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--        -->
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--3">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading--span--3">하얀 눈으로 가기</span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>5일 여행</li>
+                <li>최대 15명</li>
+                <li>안내원3명</li>
+                <li>코지 호텔숙박</li>
+                <li>난이도: 높음</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card__side card__side--back card__side--back-3">
+            <div class="card__cta">
+              <div class="card__price--box">
+                <p class="card__price--only">Only</p>
+                <p class="card__price--value">$897</p>
+              </div>
+              <a href="#popup" class="btn btn--white">예약</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---                       -->
+    </div>
+
+    <div class="u-center-text u-margin-top-huge">
+      <a href="#" class="btn btn--green">상세 안내</a>
+    </div>
+  </section>
+
+  <section class="section-stories">
+    <div class="bg-video">
+      <video class="bg-video__content" autoplay muted loop>
+        <source [src]="'assets/natour/video.mp4'" type="video/mp4">
+        <source [src]="'assets/natour/video.webm'" type="video/webm">
+        브라우져가 지원하지 않습니다.
+      </video>
+    </div>
+
+    <div class="u-center-text u-margin-bottom-big">
+      <h2 class="heading-secondary">
+        우리는 즐거움을 선사하는 요정입니다.
+      </h2>
+    </div>
+
+    <div class="row">
+      <div class="story">
+        <figure class="story__shape">
+          <img [src]="'assets/natour/nat-8.jpg'" alt="Person on a tour" class="story__img">
+          <figcaption class="story__caption">Mary Smith</figcaption>
+        </figure>
+        <div class="story__text">
+          <h3 class="heading-tertiary u-margin-bottom-small">내 가족과 행복한 여행을 하였어요</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero repellat
+            quis consequatur ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente aspernatur libero
+            repellat quis consequatur ducimus
+            quam nisi exercitationem omnis earum qui.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="story">
+        <figure class="story__shape">
+          <img [src]="'assets/natour/nat-9.jpg'" alt="Person on a tour" class="story__img">
+          <figcaption class="story__caption">Jack Wilson</figcaption>
+        </figure>
+        <div class="story__text">
+          <h3 class="heading-tertiary u-margin-bottom-small">인생은 즐거워야 합니다.</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero repellat
+            quis consequatur ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente aspernatur libero
+            repellat quis consequatur ducimus
+            quam nisi exercitationem omnis earum qui.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="u-center-text u-margin-top-huge">
+      <a href="#" class="btn-text">모든 이야기 읽음</a>
+    </div>
+  </section>
+
+  <section class="section-book">
+    <div class="row">
+      <div class="book">
+        <div class="book__form">
+          <form action="#" class="form">
+            <div class="u-margin-bottom-medium">
+              <h2 class="heading-secondary">예약하세요</h2>
+            </div>
+
+            <div class="form__group">
+              <input type="text" class="form__input" placeholder="Full name" id="name" required>
+              <label for="name" class="form__label">Full Name</label>
+            </div>
+
+            <div class="form__group">
+              <input type="email" class="form__input" placeholder="이메일" id="email" required />
+              <label for="email" class="form__label">이메일</label>
+            </div>
+
+            <div class="form__group u-margin-bottom-medium">
+              <div class="form__radio-group">
+                <input type="radio" class="form__radio-input" id="small" name="size" />
+                <label for="small" class="form__radio-label">
+                  <span class="form__radio-button">
+
+                  </span>소규모
+                </label>
+              </div>
+
+              <div class="form__radio-group">
+                <input type="radio" class="form__radio-input" id="large" name="size" />
+                <label for="large" class="form__radio-label">
+                  <span class="form__radio-button">
+                  </span> 대규모
+                </label>
+              </div>
+            </div>
+
+
+            <div class="form__group">
+              <button class="btn btn--green">다음단계 &rarr;</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__logo-box">
+    <img [src]="'assets/natour/logo-green-2x.png'" alt="Full logo" class="footer__logo">
+  </div>
+  <div class="row">
+    <div class="col-1-of-2">
+      <div class="footer__navigation">
+        <ul class="footer__list">
+          <li class="footer__item"><a href="#" class="footer__link">Company</a> </li>
+          <li class="footer__item"><a href="#" class="footer__link">Contact us</a> </li>
+          <li class="footer__item"><a href="#" class="footer__link">Carrers</a> </li>
+          <li class="footer__item"><a href="#" class="footer__link">Privach policy</a> </li>
+          <li class="footer__item"><a href="#" class="footer__link">Terms</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-1-of-2">
+      <p class="footer__copyright">
+        Built by <a href="#" class="footer__link">Jonas Schmedtmann</a> for his online course <a href="#"
+          class="footer__link">Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schmedtmann. You are 100% allowed to
+        use this webpage for both
+        personal and commercial use, but NOT to claim it as your own design. A credit to the original author, Jonas
+        Schmedtmann, is of course highly appreciated!
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<div class="popup" id="popup">
+  <span>POPUP</span>
+
+  <div class="popup__content">
+    <div class="popup__left">
+      <img [src]="'assets/natour/nat-8.jpg'" alt="Tour photo" class="popup__img">
+      <img [src]="'assets/natour/nat-9.jpg'" alt="Tour photo" class="popup__img">
+    </div>
+    <div class="popup__right">
+      <a href="#section-tours" class="popup__close">&times;</a>
+      <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+      <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+      <p class="popup__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Sed sed risus pretium quam. Aliquam sem et tortor consequat id. Volutpat odio facilisis mauris sit
+        amet massa vitae. Mi bibendum
+        neque egestas congue. Placerat orci nulla pellentesque dignissim enim sit. Vitae semper quis lectus nulla at
+        volutpat diam ut venenatis. Malesuada pellentesque elit eget gravida cum sociis natoque penatibus et. Proin
+        fermentum leo
+        vel orci porta non pulvinar neque laoreet. Gravida neque convallis a cras semper. Molestie at elementum eu
+        facilisis sed odio morbi quis. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Nam libero
+        justo laoreet sit.
+        Amet massa vitae tortor condimentum lacinia quis vel eros donec. Sit amet facilisis magna etiam. Imperdiet sed
+        euismod nisi porta.
+      </p>
+      <a href="#" class="btn btn--green">Book Now</a>
+    </div>
+  </div>
+
+</div>

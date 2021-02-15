@@ -38,7 +38,11 @@ import { TurbulenceComponent } from './components/turbulence/turbulence.componen
 
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { PanzoomComponent } from './components/panzoom/panzoom.component';
-import { ThanosSnapComponent } from './components/thanos-snap/thanos-snap.component';
+import { SnapEffectComponent } from './components/snap-effect/snap-effect.component';
+import { SetterGetterComponent } from '../ngschool/ES6/setter-getter/setter-getter.component';
+import { InjectionTokenComponent } from '../ngschool/core/injection-token/injection-token.component';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+
 
 @NgModule({
     declarations: [
@@ -65,7 +69,11 @@ import { ThanosSnapComponent } from './components/thanos-snap/thanos-snap.compon
         EyeFollowComponent,
         TurbulenceComponent,
         PanzoomComponent,
-        ThanosSnapComponent
+        SnapEffectComponent,
+        SetterGetterComponent,
+        InjectionTokenComponent,
+        RegisterFormComponent,
+
 
     ],
     imports: [

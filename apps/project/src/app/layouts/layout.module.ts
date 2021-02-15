@@ -18,6 +18,8 @@ import { PlayMusicComponent } from './play-music/play-music.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
+import { NatourComponent } from './natour/natour.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,10 @@ import { EcommerceComponent } from './ecommerce/ecommerce.component';
     TabMenuComponent,
 
     EcommerceComponent,
+
+    NatourComponent,
+
+    FileuploadComponent,
 
   ],
   imports: [

@@ -24,7 +24,11 @@ const routes: Routes = [
       { path: '', loadChildren: () => import('./ngschool/ngschool.module').then((m) => m.NgschoolModule) },
     ],
   },
-
+  {
+    path: 'cdk', children: [
+      { path: '', loadChildren: () => import('./ngmaterial/ngmaterial.module').then((m) => m.NgmaterialModule) },
+    ]
+  }
 
 ]
 
