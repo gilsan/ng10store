@@ -9,6 +9,7 @@ import {
   OnDestroy
 } from '@angular/core';
 import { UploadComponent } from './upload/upload.component';
+import { FirstClassFunComponent } from './first-class-fun/first-class-fun.component';
 
 interface Food {
   value: string;
@@ -26,7 +27,8 @@ export class PortalComponent implements OnInit, AfterViewInit, OnDestroy {
   foods: Food[] = [
     { value: 'componentPortal', viewValue: '컴포넌트' },
     { value: 'templatePortal', viewValue: '템플릴' },
-    { value: 'domPortal', viewValue: '돔' }
+    { value: 'domPortal', viewValue: '돔' },
+    { value: 'firstclass', viewValue: '일등함수' }
   ];
 
   selectedValue: string;
@@ -35,6 +37,7 @@ export class PortalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   selectedPortal: Portal<any>;
   componentPortal: ComponentPortal<UploadComponent>;
+  firstClassComponent: ComponentPortal<FirstClassFunComponent>;
   templatePortal: TemplatePortal<any>;
   domPortal: DomPortal<any>;
 
@@ -52,6 +55,7 @@ export class PortalComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.componentPortal = new ComponentPortal(UploadComponent);
+    this.firstClassComponent = new ComponentPortal(FirstClassFunComponent);
     this.templatePortal = new TemplatePortal(
       this.templatePortalContent,
       this.viewContainerRef
@@ -66,6 +70,8 @@ export class PortalComponent implements OnInit, AfterViewInit, OnDestroy {
       this.selectedPortal = this.templatePortal;
     } else if (val === 'domPortal') {
       this.selectedPortal = this.domPortal;
+    } else if (val === 'firstclass') {
+      this.selectedPortal = this.firstClassComponent
     }
 
   }

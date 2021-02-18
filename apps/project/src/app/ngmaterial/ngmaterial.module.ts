@@ -10,6 +10,8 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { NavbarsComponent } from './navigation/navbars/navbars.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { NgmaterialComponent } from './ngmaterial.component';
+import { OverlayComponent } from './overlay/overlay.component';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { NgmaterialComponent } from './ngmaterial.component';
     SidenavListComponent,
     NavbarsComponent,
     HeaderComponent,
-    PortalComponent
+    PortalComponent,
+    OverlayComponent,
   ],
   imports: [
 
