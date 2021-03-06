@@ -9,6 +9,10 @@ import { SweetAlertComponent } from './utils/sweet-alert/sweet-alert.component';
 import { PixijsComponent } from './components/pixijs/pixijs.component';
 import { SetterGetterComponent } from './ES6/setter-getter/setter-getter.component';
 import { InjectionTokenComponent } from './core/injection-token/injection-token.component';
+import { TableResizeComponent } from './components/table-resize/table-resize.component';
+import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.component';
+
+import { CourseComponent } from './components/rxjscourse/course/course.component';
 
 const routes: Routes = [
   {
@@ -17,6 +21,11 @@ const routes: Routes = [
       { path: 'injection-token', component: InjectionTokenComponent },
       { path: 'local-storage', component: LocalStorageComponent },
       { path: 'sweet-alert', component: SweetAlertComponent },
+      { path: 'table-resizable', component: TableResizeComponent },
+      {
+        path: 'rxjscourse', component: RxjscourseComponent,
+      },
+      { path: 'courses/:courseUrl', component: CourseComponent },
       {
         path: 'components', children: [
           { path: 'pixijs', component: PixijsComponent },

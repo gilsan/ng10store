@@ -1,0 +1,33 @@
+<mat-card *ngFor="let course of courses" class="course-card mat-alevation-z10">
+   <mat-card-header>
+     <mat-card-title>{{course.description}}</mat-card-title>
+   </mat-card-header>
+
+   <img mat-card-image [src]="course.iconUrl">
+   <mat-card-content>
+   
+   </mat-card-content>
+      <p>{{course.longDescription}}</p>
+   <mat-card-actions>
+      <button mat-raised-button color="primary" 
+          [routerLink]="['/ngschool/courses', course.url]">보기</button>
+
+      <button mat-raised-button color="basic">편집</button>
+   </mat-card-actions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mat-card>

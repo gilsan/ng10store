@@ -1,9 +1,9 @@
-<!-- This button triggers the overlay and is it's origin -->
+<!--  
 <button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
   {{isOpen ? "Close" : "Open"}}
 </button>
 
-<!-- This template displays the overlay content and is connected to the button -->
+ 
 <ng-template
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="trigger"
@@ -15,3 +15,54 @@
     <li  (click)="item3()">Item 3</li>
   </ul>
 </ng-template>
+ -->
+<mat-form-field
+  appearance="fill"
+  class="drop-down-input"
+  [class.drop-down-input-active]="showPanel$ | async"
+  cdkOverlayOrigin #originOverlay="cdkOverlayOrigin">
+   <mat-icon matPrefix>search</mat-icon>
+   <mat-label>검색</mat-label>
+   <input 
+    matInput
+    [formControl]="stateCtrl"
+    name="dropdown-search" />
+   <mat-icon matSuffix>arrow_drop_down</mat-icon>
+</mat-form-field>
+
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+   
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"  
+  [cdkConnectedOverlayOrigin]="originOverlay"
+  [cdkConnectedOverlayOpen]="showPanel$ | async"
+>
+  <section class="drop-down-search-panel mat-elevation-21">
+    <div class="drop-down-serch-panel_controls">
+       <mat-slide-toggle
+        class="mat-caption"
+        (change)="setCaseSensitive($event)"
+        [checked]="isCaseSensitive">
+         Case sensitive
+       </mat-slide-toggle>
+       <mat-slide-toggle
+        class="mat-caption"
+        (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()"
+        style="margin-left: 1rem">
+         Disable Search
+       </mat-slide-toggle>
+       <mat-divider></mat-divider>
+       <div class="panel-result-section">
+         <div class="result-item" *ngFor="let state of filteredStates$ | async">
+             <img class="example-option-img" [src]="state.flag" height="25">
+             <span>{{state.name}}</span>
+             <small class="mat-caption">Population: {{state.population}}</small>
+         </div>
+       </div>
+    </div>
+  </section>
+</ng-template>
+
+
+

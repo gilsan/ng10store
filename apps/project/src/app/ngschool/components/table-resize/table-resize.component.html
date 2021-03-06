@@ -1,0 +1,51 @@
+<section>
+   <div class="ngs">
+	    <div  class="example-container">
+           <form [formGroup]="form"> 
+                 <mat-form-field appearance="fill">
+                    <input matInput placeholder="유전자" formControlName="gene">
+                </mat-form-field>
+
+                 <mat-form-field appearance="fill">
+                    <input matInput placeholder="아미노" formControlName="amino">
+                </mat-form-field>
+                 <mat-form-field appearance="fill">
+                    <input matInput placeholder="뉴크레오" formControlName="nucleotide">
+                </mat-form-field>
+
+					 </form> 
+			</div>
+	    <div><button mat-raised-button color="primary" (click)="test()">시험용</button></div>     
+			<div class="message">
+			   <span>번호:{{exist}} - {{message}}</span>
+			</div>
+	 </div>
+</section> 
+
+ <section class="gene_list">
+ <div class="table_container">
+    <h1>유전자목록</h1>
+    <table>
+    	<thead>
+    		<tr>
+    			<th resizable>ID</th>
+    			<th resizable>유전자</th>
+    			<th resizable>아미노액시드</th>
+    			<th>뉴클레오타이드</th>
+    		</tr>
+    	</thead>
+    	<ng-container *ngIf="(lists$ | async) as lists">
+    	   <tbody>
+    	   	<tr *ngFor="let polymo of lists; let i = index">
+    	   		<td>{{i}}</td>
+    	   		<td>{{polymo.gene}}</td>
+    	   		<td>{{polymo.amino_acid_change}}</td>
+    	   		<td>{{polymo.nucleotide_change}}</td>
+    	   	</tr>
+    	   </tbody>
+    	</ng-container>	
+    
+    </table>
+</div>
+</section>
+

@@ -12,8 +12,23 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+
+@import "~@angular/material/theming";
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../../../node_modules/angular-calendar/css/angular-calendar.css";
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+// @import "./app/ngmaterial/overlay/drop-down-search.theme";
+
+$angular-cdk-lessons-primary: mat-palette($mat-teal);
+$angular-cdk-lessons-accent: mat-palette($mat-pink, A200, A100, A400);
+$angula-cdk-lessons-warn: mat-palette($mat-red);
+
+$angular-cdk-lessons-theme: mat-light-theme($angular-cdk-lessons-primary,
+  $angular-cdk-lessons-accent,
+  $angula-cdk-lessons-warn);
+
+// @include angular-material-theme($angular-cdk-lessons-theme);
+// @include drop-down-search-theme($angular-cdk-lessons-theme);

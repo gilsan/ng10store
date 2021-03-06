@@ -1,3 +1,53 @@
+:host {
+  display: block;
+}
+
+.drop-down-input {
+  width: 35rem;
+}
+
+.drop-down-input-active {
+  z-index: 1000000
+}
+
+.drop-down-search-panel {
+  width: 40rem;
+  min-height: 5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #e7a5a5;
+
+  &_controls {
+    display: flex;
+    margin: -1rem -1rem 0 -1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+mat-form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+}
+
+.result-item {
+  display: flex;
+  padding: 0.7rem;
+  box-sizing: border-box;
+  align-items: center;
+  color: white;
+
+  span {
+    margin: 0 1rem;
+    flex-grow: 1;
+  }
+}
+
 .example-list {
   width: 100px;
   border: solid 1px #ccc;
