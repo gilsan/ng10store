@@ -20,6 +20,7 @@ import { MaterialModule } from '../material.module';
 import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.component';
 import { CourseCardListComponent } from './components/rxjscourse/course-card-list/course-card-list.component';
 import { CourseComponent } from './components/rxjscourse/course/course.component';
+import { EidtCourseDialogComponent } from './components/rxjscourse/eidt-course-dialog/eidt-course-dialog.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CourseComponent } from './components/rxjscourse/course/course.component
     TableResizeComponent,
     RxjscourseComponent,
     CourseCardListComponent,
-    CourseComponent
+    CourseComponent,
+    EidtCourseDialogComponent
 
 
   ],
@@ -47,5 +49,8 @@ import { CourseComponent } from './components/rxjscourse/course/course.component
     ResizableModule,
     MaterialModule
   ],
+  entryComponents: [
+    EidtCourseDialogComponent
+  ]
 })
 export class NgschoolModule { }

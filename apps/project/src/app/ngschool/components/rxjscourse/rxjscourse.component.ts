@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { COURSES, findLessonsForCourse } from './db-data';
 
 
+
 @Component({
   selector: 'app-rxjscourse',
   templateUrl: './rxjscourse.component.html',
@@ -24,7 +25,8 @@ export class RxjscourseComponent implements OnInit {
 
   constructor(
     private service: CourseService,
-    private db: AngularFirestore
+    private db: AngularFirestore,
+
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class RxjscourseComponent implements OnInit {
     const courses$ = this.refresh$.pipe(
       switchMap(_ => this.service.getCourses()),
       take(1),
-      tap(data => console.log(data))
+      // tap(data => console.log(data))
     );
 
     this.loading$ = courses$.pipe(map(courses => !!courses));
@@ -69,7 +71,7 @@ export class RxjscourseComponent implements OnInit {
       const courseRef = await coursesCollection.add(newCourse);
       const lessons = await courseRef.collection('lessons');
       const courseLessons = findLessonsForCourse(course['id']);
-      console.log(`Uploading course ${course['description']}`);
+      // console.log(`Uploading course ${course['description']}`);
       for (const lesson of courseLessons) {
         const newLesson = this.removeId(lesson);
         await lessons.add(newLesson);
@@ -86,10 +88,12 @@ export class RxjscourseComponent implements OnInit {
   readDoc() {
     this.db.doc('/courses/2ULbAhsUF31vsyiJnXc5').get()
       .subscribe(snap => {
-        console.log(snap.id);
-        console.log(snap.data());
+        //  console.log(snap.id);
+        //  console.log(snap.data());
       })
   }
+
+
 
 
 

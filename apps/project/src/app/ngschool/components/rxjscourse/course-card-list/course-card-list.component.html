@@ -12,7 +12,7 @@
       <button mat-raised-button color="primary" 
           [routerLink]="['/ngschool/courses', course.url]">보기</button>
 
-      <button mat-raised-button color="basic">편집</button>
+      <button mat-raised-button color="basic" (click)="editCourse(course)">편집</button>
    </mat-card-actions>
 
 
