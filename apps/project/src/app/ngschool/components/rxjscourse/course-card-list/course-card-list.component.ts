@@ -16,12 +16,14 @@ export class CourseCardListComponent implements OnInit {
   @Input() courses: Course[];
   @Output() courseChanged = new EventEmitter();
 
+
   constructor(
     private service: CourseService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
+
 
   }
 
@@ -30,6 +32,8 @@ export class CourseCardListComponent implements OnInit {
   onDeleteCourse(course: Course) {
 
   }
+
+
 
   selectedCourse(course: Course) {
     console.log(course);

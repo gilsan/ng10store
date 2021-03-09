@@ -35,23 +35,13 @@ export class RxjscourseComponent implements OnInit {
   }
 
   reload() {
-    // const courses$ = this.service.findAllCourses();
-    // const courses$ = this.service.getCourses();
     const courses$ = this.refresh$.pipe(
       switchMap(_ => this.service.getCourses()),
       take(1),
-      // tap(data => console.log(data))
     );
 
-    this.loading$ = courses$.pipe(map(courses => !!courses));
-
-    this.beginnerCourses$ = courses$.pipe(
-      map(courses => courses.filter(course => course.category === 'BEGINNER'))
-    );
-
-    this.advancedCourses$ = courses$.pipe(
-      map(courses => courses.filter(course => course.category === 'ADVANCED'))
-    );
+    this.beginnerCourses$ = this.service.selectBeginnerCourse();
+    this.advancedCourses$ = this.service.selectAdvancedCourse();
 
     this.promTotal$ = courses$.pipe(
       map(courses => courses.filter(course => course.promo).length)
