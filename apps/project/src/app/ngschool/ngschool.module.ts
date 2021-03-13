@@ -21,6 +21,9 @@ import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.componen
 import { CourseCardListComponent } from './components/rxjscourse/course-card-list/course-card-list.component';
 import { CourseComponent } from './components/rxjscourse/course/course.component';
 import { EidtCourseDialogComponent } from './components/rxjscourse/eidt-course-dialog/eidt-course-dialog.component';
+import { environment } from '../../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -47,7 +50,9 @@ import { EidtCourseDialogComponent } from './components/rxjscourse/eidt-course-d
     ClarityModule,
     NgschoolRouting,
     ResizableModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   entryComponents: [
     EidtCourseDialogComponent

@@ -22,32 +22,21 @@ export class CourseCardListComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-
-  }
-
-
-
-  onDeleteCourse(course: Course) {
-
-  }
-
-
+  onDeleteCourse(course: Course) { }
 
   selectedCourse(course: Course) {
     console.log(course);
   }
 
-  editCourse({ description, longDescription, category }: Course) {
-    console.log('editCourse:  ', description, longDescription, category)
+  editCourse(course: Course) {
+    console.log('[43] editCourse:  ', course)
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.data = {
-      description, longDescription, category
-    };
+    dialogConfig.data = course;
 
     const dialogRef = this.dialog.open(EidtCourseDialogComponent, dialogConfig);
     dialogRef.afterClosed()

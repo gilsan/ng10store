@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { USERS, COURSES, LESSONS } from './db-data';
 import { Course, Lesson } from './models';
-import { filter, map, shareReplay } from 'rxjs/operators';
+import { filter, map, shareReplay, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -60,31 +60,36 @@ export class CourseService {
       map(courses => courses[0])
     )
   }
+  findCourseById(id: number): Observable<Course> {
+    return this.courseList$.pipe(
+      map(courses => courses.filter(course => course.id === id)),
+      map(courses => courses[0])
+    )
+  }
 
-  findLessons(courseId: string, pageNumber = 0, pageSize = 3): Observable<Lesson[]> {
+  findLessons(courseId: number, pageNumber = 0, pageSize = 3): Observable<Lesson[]> {
     return this.lessonsList$.pipe(
-      map(lessons => lessons.filter(lesson => lesson.courseId === +courseId)),
+      map(lessons => lessons.filter(lesson => lesson.courseId === courseId)),
       map(lessons => lessons.slice(pageNumber, 3))
     )
   }
 
+  /**
+   * Param: @id: courseID
+   * Param: @changes: course 변경내용
+   */
+  saveCourse(id: number, change): Observable<any> {
+    const courses = this.subject$.getValue();
+    const courseIndex = courses.findIndex(course => course.id === id);
+    const newCourses = courses.slice(0);
+    newCourses[courseIndex] = { ...newCourses[courseIndex], ...change };
+    this.subject$.next(newCourses);
+    /***
+     *  return this.http.put('api/course/update', { id, change})
+     */
 
+    return of([]);
 
-
-  // findAllUsers() {
-  //   const users = Object.values(USERS);
-  //   return of(users)
-  // }
-
-  // findAllCourses() {
-  //   this.courses = Object.values(COURSES);
-  //   return of(this.courses).pipe(shareReplay());
-
-  // }
-
-
-
-  ////////////////////////////////////////////////
-
+  }
 
 }

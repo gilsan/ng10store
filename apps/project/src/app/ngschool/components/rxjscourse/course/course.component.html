@@ -41,7 +41,8 @@
     </mat-table>
 
     <mat-paginator #paginator [length]="course?.lessonsCount" [pageSize]="3"
-                   [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+                   [pageSizeOptions]="[3, 5, 10]"
+                   (page)="pageChange($event)"></mat-paginator>
 
 
   </div>

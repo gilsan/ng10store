@@ -13,6 +13,7 @@ import { TableResizeComponent } from './components/table-resize/table-resize.com
 import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.component';
 
 import { CourseComponent } from './components/rxjscourse/course/course.component';
+import { CourseResolver } from './components/rxjscourse/course.resolver';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
       {
         path: 'rxjscourse', component: RxjscourseComponent,
       },
-      { path: 'courses/:courseUrl', component: CourseComponent },
+      { path: 'courses/:courseUrl', component: CourseComponent, resolve: { course: CourseResolver } },
       {
         path: 'components', children: [
           { path: 'pixijs', component: PixijsComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+
 
     RouterModule.forChild(routes),
   ],

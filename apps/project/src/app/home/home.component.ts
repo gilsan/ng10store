@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   imageDesc = '홈';
 
   contents = ['환영합니다.',
-    '페이지 개발환경 입니다.', 'Angular 10 RxJS, 웹서버: AWS EC2 Node.js 12.0, 디비: EC2 MySQL',
+    '페이지 개발환경 입니다.', 'Angular 10 RxJS, 웹서버: Firebase Node.js 12.0, 디비: FireStore/EC2 MySQL',
     'Web Hosting Server: AWS S3'];
   constructor() { }
 

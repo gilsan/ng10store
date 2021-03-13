@@ -2,11 +2,22 @@ import { AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren } 
 import { ActivatedRoute } from '@angular/router';
 import { CourseService } from '../course.service';
 import { Course, Lesson } from './../models';
-import { Observable } from 'rxjs';
+import { combineLatest, forkJoin, Observable } from 'rxjs';
 
-import { concatMap, delay, filter, first, map, shareReplay, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import {
+  concatMap, delay, filter, first, map, shareReplay,
+  switchMap, take, tap, withLatestFrom
+} from 'rxjs/operators';
 
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { FirestoreService } from './../../../firestore.service';
+
+export interface IPage {
+  length: number;
+  pageIndex: number;
+  pageSize: number;
+  previousPageIndex: number;
+}
 
 
 @Component({
@@ -14,14 +25,14 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent implements OnInit, AfterViewInit {
 
+  course: Course;
   course$: Observable<Course>;
-
   lessons$: Observable<Lesson[]>;
 
   displayedColumns = ['seqNo', 'description', 'duration'];
-
+  page: IPage;
   currentPage = 0;
 
   @ViewChildren(MatPaginator) paginators: QueryList<MatPaginator>;
@@ -30,38 +41,46 @@ export class CourseComponent implements OnInit {
 
   constructor(
     private coursesService: CourseService,
+    private firestore: FirestoreService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // this.course = this.route.snapshot.data['course'];
+    this.course$ = this.route.data.pipe(map(data => data['course']));
 
-    const courseUrl = this.route.snapshot.paramMap.get("courseUrl");
-
-    this.course$ = this.coursesService.findCourseByUrl(courseUrl);
-
-    this.loadLessonsPage();
+    this.lessons$ = this.course$.pipe(
+      concatMap(course => this.firestore.findLessons(course.docId))
+    )
 
   }
 
   ngAfterViewInit() {
-
     this.paginators.changes
       .pipe(
+        tap(data => console.log('page', data)),
         filter(paginators => paginators.length > 0),
         switchMap(paginators => paginators.first.page)
       )
       .subscribe(
         (page: PageEvent) => {
           this.currentPage = page.pageIndex;
-          this.loadLessonsPage();
+          //  this.loadLessonsPage();
         }
       );
   }
 
   loadLessonsPage() {
     console.log("현재 페이지: ", this.currentPage);
-    this.lessons$ = this.course$.pipe(
+    return this.course$.pipe(
       concatMap(course => this.coursesService.findLessons(course.id, this.currentPage, 3)),
     );
+  }
+
+  pageChange(evt: IPage) {
+
+    this.lessons$ = this.course$.pipe(
+      concatMap(course => this.firestore.findLessons(course.docId, 'asc', evt.pageIndex))
+    )
   }
 
 }

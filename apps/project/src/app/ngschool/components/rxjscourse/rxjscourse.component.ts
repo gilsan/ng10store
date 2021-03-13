@@ -1,14 +1,18 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { map, switchMap, take, tap } from 'rxjs/operators';
+import { map, switchMap, take, tap, shareReplay } from 'rxjs/operators';
 import { CourseService } from './course.service';
 import { Course } from './models';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { COURSES, findLessonsForCourse } from './db-data';
+import { FirestoreService } from './../../firestore.service';
+import { snap } from 'gsap/all';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-rxjscourse',
   templateUrl: './rxjscourse.component.html',
   styleUrls: ['./rxjscourse.component.scss'],
@@ -26,13 +30,30 @@ export class RxjscourseComponent implements OnInit {
   constructor(
     private service: CourseService,
     private db: AngularFirestore,
+    private firebaseService: FirestoreService
 
   ) { }
 
   ngOnInit(): void {
-    this.reload();
-    this.readDoc();
+    // this.reload();
+    this.allCourses();
+
   }
+
+  allCourses() {
+    const firestore$ = this.firebaseService.getCourses()
+
+    // firestore$.subscribe(data => console.log(data))
+    this.beginnerCourses$ = firestore$.pipe(
+      map(courses => courses.filter(course => course.category.includes('BEGINNER')))
+    );
+
+    this.advancedCourses$ = firestore$.pipe(
+      map(courses => courses.filter(course => course.category === 'ADVANCED'))
+    );
+  }
+
+
 
   reload() {
     const courses$ = this.refresh$.pipe(
@@ -56,6 +77,7 @@ export class RxjscourseComponent implements OnInit {
   async uploadData() {
     const coursesCollection = this.db.collection('courses');
     const courses = await this.db.collection('courses').get();
+    // tslint:disable-next-line:prefer-const
     for (let course of Object.values(COURSES)) {
       const newCourse = this.removeId(course);
       const courseRef = await coursesCollection.add(newCourse);
@@ -75,13 +97,13 @@ export class RxjscourseComponent implements OnInit {
     return newData;
   }
 
-  readDoc() {
-    this.db.doc('/courses/2ULbAhsUF31vsyiJnXc5').get()
-      .subscribe(snap => {
-        //  console.log(snap.id);
-        //  console.log(snap.data());
-      })
-  }
+  // readDoc() {
+  //   this.db.doc('/courses/2ULbAhsUF31vsyiJnXc5').get()
+  //     .subscribe(snapdata => {
+  //       //  console.log(snap.id);
+  //       //  console.log(snap.data());
+  //     })
+  // }
 
 
 

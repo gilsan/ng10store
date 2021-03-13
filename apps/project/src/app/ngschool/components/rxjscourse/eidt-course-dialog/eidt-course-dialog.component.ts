@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CourseService } from '../course.service';
 import { Course } from './../models';
 
 
@@ -12,20 +13,22 @@ import { Course } from './../models';
 export class EidtCourseDialogComponent implements OnInit {
 
   form: FormGroup;
+  course: Course;
   description: string;
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<EidtCourseDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) { description, longDescription, category }: Course
+    @Inject(MAT_DIALOG_DATA) course: Course,
+    private service: CourseService
   ) {
-    this.description = description;
-    console.log(longDescription);
+    this.course = course;
+    this.description = course.description;
 
     this.form = fb.group({
-      description: [description, Validators.required],
-      category: [category, Validators.required],
+      description: [course.description, Validators.required],
+      category: [course.category, Validators.required],
       releasedAt: [new Date(), Validators.required],
-      longDescription: [longDescription, Validators.required]
+      longDescription: [course.longDescription, Validators.required]
     });
 
   }
@@ -33,8 +36,8 @@ export class EidtCourseDialogComponent implements OnInit {
   ngOnInit(): void { }
 
   save() {
-    console.log(this.form.value);
-    // this.dialogRef.close(this.form.value);
+    this.service.saveCourse(this.course.id, this.form.value)
+      .subscribe(() => this.dialogRef.close())
   }
 
   close() {
