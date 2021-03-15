@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { from, Observable } from 'rxjs';
+import { from, Observable, BehaviorSubject } from 'rxjs';
 import { first, map, tap } from 'rxjs/operators';
 import { Course, Lesson } from './components/rxjscourse/models';
 import { convertSnaps } from '../shared/utils';
@@ -14,30 +14,48 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirestoreService {
 
   isLoggedIn = false;
+  subject$ = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this.subject$.asObservable();
+
   constructor(
     private db: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
   ) { }
 
-  async signin(email: string, password: string) {
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
-      })
+  signin(email: string, password: string): Observable<any> {
+    return from(this.firebaseAuth.signInWithEmailAndPassword(email, password))
+      .pipe(
+        tap(res => {
+          this.isLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(res.user));
+          this.subject$.next(true);
+        })
+      );
+
   }
 
-  async signup(email: string, password: string) {
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user));
-      })
+  signup(email: string, password: string): Observable<any> {
+    return from(this.firebaseAuth.createUserWithEmailAndPassword(email, password))
+      .pipe(
+        tap(res => {
+          this.isLoggedIn = true;
+          localStorage.setItem('user', JSON.stringify(res.user));
+          this.subject$.next(true);
+        })
+      );
+
   }
 
-  logout() {
-    this.firebaseAuth.signOut();
-    localStorage.removeItem('user');
+  logout(): Observable<any> {
+    return from(this.firebaseAuth.signOut())
+      .pipe(
+        tap(res => {
+          console.log('[service] logout:', res);
+          localStorage.removeItem('user');
+          this.subject$.next(false);
+        })
+      );
+
   }
 
 

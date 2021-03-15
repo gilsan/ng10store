@@ -26,6 +26,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { LoginComponent } from './components/rxjscourse/login/login.component';
+import { RegisterComponent } from './components/rxjscourse/register/register.component';
 @NgModule({
   declarations: [
     NgschoolComponent,
@@ -38,7 +40,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     RxjscourseComponent,
     CourseCardListComponent,
     CourseComponent,
-    EidtCourseDialogComponent
+    EidtCourseDialogComponent,
+    LoginComponent,
+    RegisterComponent
 
 
   ],
@@ -57,7 +61,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFireStorageModule,
   ],
   entryComponents: [
-    EidtCourseDialogComponent
+    EidtCourseDialogComponent,
+    RegisterComponent
   ]
 })
 export class NgschoolModule { }

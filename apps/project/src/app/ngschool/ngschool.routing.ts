@@ -14,6 +14,7 @@ import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.componen
 
 import { CourseComponent } from './components/rxjscourse/course/course.component';
 import { CourseResolver } from './components/rxjscourse/course.resolver';
+import { LoginComponent } from './components/rxjscourse/login/login.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
         path: 'rxjscourse', component: RxjscourseComponent,
       },
       { path: 'courses/:courseUrl', component: CourseComponent, resolve: { course: CourseResolver } },
+      { path: 'login', component: LoginComponent },
       {
         path: 'components', children: [
           { path: 'pixijs', component: PixijsComponent },

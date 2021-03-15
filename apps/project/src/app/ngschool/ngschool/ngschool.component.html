@@ -82,6 +82,12 @@
     </clr-dropdown>
 
   </div>
+  <div class="header-actions" *ngIf="!(firestoreService.isLoggedIn$ | async)">
+     <a routerLink="login" class="active nav-link" routerLinkActive="active"><span class="nav-text">로그인</span></a> 
+  </div>
+  <div class="header-actions" *ngIf="(firestoreService.isLoggedIn$ | async)">
+      <span class="nav-text nav-link nav-logout" (click)="logout()">로그아웃</span> 
+  </div>  
   <div class="header-actions">
     <a routerLink="/home" class="nav-link nav-icon" aria-label="settings">
       <i class="fas fa-arrow-left"></i>

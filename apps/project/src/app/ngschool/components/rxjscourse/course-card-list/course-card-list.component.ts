@@ -35,6 +35,7 @@ export class CourseCardListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
+
     dialogConfig.data = course;
 
     const dialogRef = this.dialog.open(EidtCourseDialogComponent, dialogConfig);
