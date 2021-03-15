@@ -36,11 +36,11 @@ export class RxjscourseComponent implements OnInit {
 
   ngOnInit(): void {
     // this.reload();
-    this.allCourses();
+    this.loadCourses();
 
   }
 
-  allCourses() {
+  loadCourses() {
     const firestore$ = this.firebaseService.getCourses()
 
     // firestore$.subscribe(data => console.log(data))

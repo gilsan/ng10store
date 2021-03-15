@@ -5,7 +5,7 @@ import { Course, Lesson } from './../models';
 import { combineLatest, forkJoin, Observable } from 'rxjs';
 
 import {
-  concatMap, delay, filter, first, map, shareReplay,
+  concatMap, delay, filter, finalize, first, map, shareReplay,
   switchMap, take, tap, withLatestFrom
 } from 'rxjs/operators';
 
@@ -34,6 +34,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
   displayedColumns = ['seqNo', 'description', 'duration'];
   page: IPage;
   currentPage = 0;
+  loading = false;
 
   @ViewChildren(MatPaginator) paginators: QueryList<MatPaginator>;
 
@@ -46,10 +47,15 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // this.course = this.route.snapshot.data['course'];
-    this.course$ = this.route.data.pipe(map(data => data['course']));
+    this.course$ = this.route.data.pipe(map(data => data['course']))
+      .pipe(
+        tap(data => console.log(data)),
+        tap(() => this.loading = true)
+      );
 
     this.lessons$ = this.course$.pipe(
-      concatMap(course => this.firestore.findLessons(course.docId))
+      concatMap(course => this.firestore.findLessons(course.docId)),
+      tap(() => this.loading = false)
     )
 
   }
@@ -77,9 +83,10 @@ export class CourseComponent implements OnInit, AfterViewInit {
   }
 
   pageChange(evt: IPage) {
-
+    this.loading = true;
     this.lessons$ = this.course$.pipe(
-      concatMap(course => this.firestore.findLessons(course.docId, 'asc', evt.pageIndex))
+      concatMap(course => this.firestore.findLessons(course.docId, 'asc', evt.pageIndex)),
+      tap(() => this.loading = false)
     )
   }
 

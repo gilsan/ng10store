@@ -76,6 +76,7 @@
     "jquery": "^3.5.1",
     "ng2-select2": "^1.0.0-beta.16",
     "ngx-audio-player": "^10.0.0",
+    "ngx-auth-firebaseui": "^0.1.2",
     "ngx-gauge": "^1.1.0",
     "ngx-panzoom": "^10.3.0",
     "ngx-typed-js": "^2.0.2",

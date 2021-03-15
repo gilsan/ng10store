@@ -31,7 +31,6 @@ export class CourseCardListComponent implements OnInit {
   }
 
   editCourse(course: Course) {
-    console.log('[43] editCourse:  ', course)
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -43,8 +42,9 @@ export class CourseCardListComponent implements OnInit {
       .pipe(
         filter(data => !!data)
       )
-      .subscribe(
-        val => console.log('Dialog output: ', val)
+      .subscribe(val => {
+        this.courseChanged.emit();
+      }
       );
   }
 

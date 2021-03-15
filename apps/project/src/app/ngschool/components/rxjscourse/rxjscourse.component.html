@@ -28,13 +28,17 @@
 
     <mat-tab label="일반과정">
 
-      <app-course-card-list [courses]="beginnerCourses$ | async"></app-course-card-list>  
+      <app-course-card-list [courses]="beginnerCourses$ | async"
+        (courseChanged) ="loadCourses()"
+      ></app-course-card-list>  
 
     </mat-tab>
 
     <mat-tab label="고급과정">
 
-      <app-course-card-list [courses]="advancedCourses$ | async"></app-course-card-list>
+      <app-course-card-list [courses]="advancedCourses$ | async"
+        (courseChanged)="loadCourses()"
+      ></app-course-card-list>
 
     </mat-tab>
 

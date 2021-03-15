@@ -22,6 +22,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 @NgModule({
   imports: [
+
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -33,6 +34,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
     AngularFireFunctionsModule,
     // AngularFireAuthModule,
     NgbModule,
+
     // StoreModule.forRoot({}),
     // EffectsModule.forRoot([]),
     // EntityDataModule.forRoot(entityConfig)

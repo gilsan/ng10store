@@ -24,8 +24,8 @@ import { EidtCourseDialogComponent } from './components/rxjscourse/eidt-course-d
 import { environment } from '../../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
-
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     NgschoolComponent,
@@ -52,7 +52,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     ResizableModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   entryComponents: [
     EidtCourseDialogComponent
