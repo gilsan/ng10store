@@ -11,6 +11,8 @@ import { NavbarsComponent } from './navigation/navbars/navbars.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { NgmaterialComponent } from './ngmaterial.component';
 import { OverlayComponent } from './overlay/overlay.component';
+import { TableComponent } from './table/table.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -22,6 +24,7 @@ import { OverlayComponent } from './overlay/overlay.component';
     HeaderComponent,
     PortalComponent,
     OverlayComponent,
+    TableComponent,
   ],
   imports: [
 
@@ -32,6 +35,7 @@ import { OverlayComponent } from './overlay/overlay.component';
     FormsModule,
     NgmaterialRoutingModule,
     MaterialModule,
+    NgbModule,
   ]
 })
 

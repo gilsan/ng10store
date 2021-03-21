@@ -1,0 +1,125 @@
+<div class="top-container">
+   <div class="page-container row">
+      <div class="col-6">
+         <div class="form-inline">
+            <div class="form-group">
+                <div class="input-group mr-3 sear-box">
+                   <input
+                      type='text'
+                      class="form-control"
+                      placeholder='찿기..'
+                      [formControl]="searchFormControl"
+                   >
+                   <div class="input-group-secondary  sear-box">
+                     <button type="button" class="btn btn-primary">찿기</button>
+                   </div>
+                </div>
+            </div>
+         </div>
+      
+      </div>
+      <div class="col-6">
+         <div class="float-right">
+             <ngb-pagination
+               [collectionSize]="tableDataSource$.value.length"
+               [pageSize]="pageSize$.value"
+               [page]="currentPages$.value"
+               (pageChange)="currentPages$.next($event)"
+               >
+             </ngb-pagination>
+         </div>
+      </div>     
+   </div>
+
+</div>
+
+ 
+<br /><br /><br />
+<table cdk-table [dataSource]="dataOnPage$" class="table table-hover">
+
+   <ng-container cdkColumnDef="name">
+      <th cdk-header-cell *cdkHeaderCellDef (click)="adjustSort('name')">이름
+       <span *ngIf="sortKey$.vlaue === 'name'">
+           {{ sortDirection$.value === 'asc' ? '↥' : '↧'}}
+       </span>
+      </th>
+      <td cdk-cell *cdkCellDef="let row">{{row.name}}</td>
+   </ng-container>
+
+   <ng-container cdkColumnDef="types">
+       <th cdk-header-cell *cdkHeaderCellDef>타입</th>
+       <td cdk-cell *cdkCellDef="let row"
+        >{{row.types}}</td>
+   </ng-container>
+
+   <ng-container cdkColumnDef="attack">
+      <th cdk-header-cell *cdkHeaderCellDef>공격력</th>
+      <td cdk-cell *cdkCellDef="let row"
+      [ngClass]="{
+        'table-success': superlatives$.value['highest-attack'] === row.name,
+        'table-danger': superlatives$.value['lowest-attach'] === row.name
+      }"
+      >{{row.attack}}</td>
+   </ng-container>
+
+   <ng-container  cdkColumnDef="defense">
+       <th cdk-header-cell *cdkHeaderCellDef>방어력</th>
+       <td cdk-cell *cdkCellDef="let row"
+      [ngClass]="{
+        'table-success': superlatives$.value['highest-defense'] === row.name,
+        'table-danger': superlatives$.value['lowest-defense'] === row.name
+      }"       
+      >{{row.defense}}</td>
+   </ng-container>
+
+   <ng-container  cdkColumnDef="speed">
+       <th cdk-header-cell *cdkHeaderCellDef>속도</th>
+       <td cdk-cell *cdkCellDef="let row"
+       [ngClass]="{
+        'table-success': superlatives$.value['highest-speed'] === row.name,
+        'table-danger': superlatives$.value['lowest-speed'] === row.name
+      }"
+      >{{row.speed}}</td>
+   </ng-container>
+
+   <ng-container cdkColumnDef="healing"> 
+       <th cdk-header-cell *cdkHeaderCellDef>치료율</th>
+       <td cdk-cell *cdkCellDef="let row"
+       [ngClass]="{
+        'table-success': superlatives$.value['highest-healing'] === row.name,
+        'table-danger': superlatives$.value['lowest-healing'] === row.name
+      }"       
+      >{{row.healing}}</td>
+   </ng-container>
+
+   <ng-container cdkColumnDef="recovery"> 
+       <th cdk-header-cell *cdkHeaderCellDef>회복율</th>
+       <td cdk-cell *cdkCellDef="let row"
+       [ngClass]="{
+        'table-success': superlatives$.value['highest-recovery'] === row.name,
+        'table-danger': superlatives$.value['lowest-recovery'] === row.name
+      }"        
+      >{{row.recovery}}</td>
+   </ng-container>
+
+   <ng-container  cdkColumnDef="health">
+       <th cdk-header-cell *cdkHeaderCellDef>건강상태</th>
+       <td cdk-cell *cdkCellDef="let row"
+       [ngClass]="{
+        'table-success': superlatives$.value['highest-health'] === row.name,
+        'table-danger': superlatives$.value['lowest-health'] === row.name
+      }"         
+      >{{row.health}}</td>
+   </ng-container>      
+
+   <ng-container  cdkColumnDef="levelUp">
+       <th cdk-header-cell *cdkHeaderCellDef>Level Up</th>
+       <td cdk-cell *cdkCellDef="let row">
+           <button (click)="levelUp(row.name)" class="btn btn-primary">Level Up!!</button>
+       </td>
+   </ng-container>
+
+   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
+
+</table>

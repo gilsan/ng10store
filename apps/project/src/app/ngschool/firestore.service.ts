@@ -17,10 +17,21 @@ export class FirestoreService {
   subject$ = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.subject$.asObservable();
 
+  url = 'http://localhost:5001/ngtenpro/us-central1/getCourses';
+
   constructor(
     private db: AngularFirestore,
     private firebaseAuth: AngularFireAuth,
-  ) { }
+  ) {
+    this.inituser();
+  }
+
+  inituser() {
+    const user = localStorage.getItem('user')
+    if (user) {
+      this.subject$.next(true);
+    }
+  }
 
   signin(email: string, password: string): Observable<any> {
     return from(this.firebaseAuth.signInWithEmailAndPassword(email, password))

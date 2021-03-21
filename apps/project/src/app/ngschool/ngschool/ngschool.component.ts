@@ -11,24 +11,17 @@ import { FirestoreService } from '../firestore.service';
 })
 export class NgschoolComponent implements OnInit {
 
-  isLoggedIn = false;
+
   constructor(
     private router: Router,
     public firestoreService: FirestoreService
   ) { }
 
-  ngOnInit(): void {
-    const user = localStorage.getItem('user');
-    if (user) {
-      this.isLoggedIn = true;
-    }
-  }
+  ngOnInit(): void { }
 
   logout() {
     this.firestoreService.logout()
       .subscribe(res => {
-        console.log(res);
-        this.isLoggedIn = false;
         this.router.navigate(['/ngschool', 'login']);
       });
   }
