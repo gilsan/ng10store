@@ -183,12 +183,12 @@ export class TableComponent implements OnInit {
 
     combineLatest([this.heroes$, this.searchFormControl.valueChanges, this.sortKey$, this.sortDirection$])
       .subscribe(([changedHeroData, searchTerm, sortKey, sortDirection]) => {
+
         const heroesArray = Object.values(changedHeroData);
         let filteredHeroes: any[];
 
         if (!searchTerm) {
-          this.tableDataSource$.next(heroesArray);
-          return
+          filteredHeroes = heroesArray;
         } else {
           const filteredResults = heroesArray.filter(hero => {
             return Object.values(hero).reduce((prev, curr) => {
@@ -197,17 +197,16 @@ export class TableComponent implements OnInit {
           });
           filteredHeroes = filteredResults;
         }
-        // this.tableDataSource$.next(filteredHeroes)
+
         const sortedHeroes = filteredHeroes.sort((a, b) => {
           if (a[sortKey] > b[sortKey]) return sortDirection === 'asc' ? 1 : -1;
           if (a[sortKey] < b[sortKey]) return sortDirection === 'asc' ? -1 : 1;
           return 0;
         });
         this.tableDataSource$.next(sortedHeroes);
-        this.searchFormControl.setValue('');
       });
-
-  }
+    this.searchFormControl.setValue('');
+  }  // End of Init
 
   levelUp(heroName: string) {
     const updatedHero = { ...this.heroes$.value[heroName] };
@@ -226,6 +225,7 @@ export class TableComponent implements OnInit {
   }
 
   adjustSort(key: string) {
+    console.log(key);
     if (this.sortKey$.value === key) {
       if (this.sortDirection$.value === 'asc') {
         this.sortDirection$.next('desc');

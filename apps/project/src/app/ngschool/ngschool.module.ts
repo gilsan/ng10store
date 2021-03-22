@@ -28,6 +28,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { LoginComponent } from './components/rxjscourse/login/login.component';
 import { RegisterComponent } from './components/rxjscourse/register/register.component';
+import { AboutComponent } from './components/rxjscourse/about/about.component';
 @NgModule({
   declarations: [
     NgschoolComponent,
@@ -42,7 +43,8 @@ import { RegisterComponent } from './components/rxjscourse/register/register.com
     CourseComponent,
     EidtCourseDialogComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutComponent
 
 
   ],
