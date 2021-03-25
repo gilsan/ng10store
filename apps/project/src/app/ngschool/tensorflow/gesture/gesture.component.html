@@ -1,0 +1,59 @@
+ 
+ <div class="tensor-container">
+ 
+    <mat-drawer-container class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+ 
+         <mat-nav-list class="sidenav-list">
+             <a mat-list-item  >
+                 <mat-icon>input</mat-icon>
+                 <span>로그인</span>
+             </a>
+             <a mat-list-item  >
+                <mat-icon>account_circle</mat-icon>
+                <span>등록</span>
+            </a>  
+            <a mat-list-item  >
+                <mat-icon>hotel</mat-icon>
+                <span>숙소</span>
+            </a> 
+            <a mat-list-item>
+                <mat-icon>loyalty</mat-icon>
+                <span>Offers</span>
+            </a>          
+         </mat-nav-list>
+
+
+      </mat-drawer>
+    
+      <mat-toolbar color="primary" class="toolbar" mat-elevation-z8>
+      <!--
+         <button mat-icon-button (click)="drawer.toggle()">
+           <mat-icon>menu</mat-icon>
+         </button>
+       -->
+         <button
+           class="hamburger hamburger--slider"
+           [class.is-active]="drawer.opened"
+           type="button"
+           (click)="drawer.toggle()"
+         >
+           <span class="hamburger-box">
+             <span class="hamburger-inner"></span>
+           </span>
+         </button>
+
+      </mat-toolbar>
+     
+    
+    </mat-drawer-container>
+
+
+
+ </div>
+ 
+
+ 
+
+
+

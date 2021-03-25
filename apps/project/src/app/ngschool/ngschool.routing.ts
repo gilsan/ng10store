@@ -15,6 +15,7 @@ import { RxjscourseComponent } from './components/rxjscourse/rxjscourse.componen
 import { CourseComponent } from './components/rxjscourse/course/course.component';
 import { CourseResolver } from './components/rxjscourse/course.resolver';
 import { LoginComponent } from './components/rxjscourse/login/login.component';
+import { GestureComponent } from './tensorflow/gesture/gesture.component';
 
 const routes: Routes = [
   {
@@ -38,8 +39,12 @@ const routes: Routes = [
         path: 'es6', children: [
           { path: 'setter-getter', component: SetterGetterComponent }
         ]
-
       },
+      {
+        path: 'tensor', children: [
+          { path: 'gesture', component: GestureComponent },
+        ]
+      }
     ]
   },
 

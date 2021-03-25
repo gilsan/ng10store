@@ -29,6 +29,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { LoginComponent } from './components/rxjscourse/login/login.component';
 import { RegisterComponent } from './components/rxjscourse/register/register.component';
 import { AboutComponent } from './components/rxjscourse/about/about.component';
+import { TensorflowModule } from './tensorflow/tensorflow.module';
 @NgModule({
   declarations: [
     NgschoolComponent,
@@ -61,6 +62,7 @@ import { AboutComponent } from './components/rxjscourse/about/about.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    TensorflowModule,
   ],
   entryComponents: [
     EidtCourseDialogComponent,
