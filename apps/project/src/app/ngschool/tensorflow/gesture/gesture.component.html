@@ -1,13 +1,61 @@
  
+ <div class="tensor-container">    
+    <mat-toolbar color="primary"  class="toolbar" mat-elevation-z8>
+        <div>
+           <button
+           class="hamburger hamburger--slider"
+           [class.is-active]="sidenav.opened"
+           type="button"
+           (click)="sidenav.toggle()"
+         >
+           <span class="hamburger-box">
+             <span class="hamburger-inner"></span>
+           </span>
+         </button> 
+        </div>      
+    </mat-toolbar>    
+   <mat-sidenav-container class="example-container">
+       <mat-sidenav #sidenav  [opened]="opened$ | async" class="example-sidenav">
+             <mat-nav-list class="sidenav-list">
+                 <a mat-list-item  routerLink="home-made">
+                     <mat-icon>input</mat-icon>
+                     <span>수제화</span>
+                 </a>
+                 <a mat-list-item  >
+                    <mat-icon>account_circle</mat-icon>
+                    <span>등록</span>
+                </a>  
+                <a mat-list-item  >
+                    <mat-icon>hotel</mat-icon>
+                    <span>숙소</span>
+                </a> 
+                <a mat-list-item >
+                    <mat-icon>loyalty</mat-icon>
+                    <span>Offers</span>
+                </a>          
+             </mat-nav-list>
+          
+       </mat-sidenav>
+       <mat-sidenav-content class="sidenav-content">
+          <router-outlet></router-outlet>
+       </mat-sidenav-content>
+   </mat-sidenav-container>
+ </div>
+
+  <video #video style="display: none"
+    width="640" height="480" autoplay [srcObject]="stream">
+  </video>
+  <canvas #canvas width="640" height="480"></canvas>
+ <!-- 
  <div class="tensor-container">
  
     <mat-drawer-container class="example-container" autosize>
       <mat-drawer #drawer class="example-sidenav" mode="side">
  
          <mat-nav-list class="sidenav-list">
-             <a mat-list-item  >
+             <a mat-list-item>
                  <mat-icon>input</mat-icon>
-                 <span>로그인</span>
+                 <span>홈</span>
              </a>
              <a mat-list-item  >
                 <mat-icon>account_circle</mat-icon>
@@ -23,15 +71,10 @@
             </a>          
          </mat-nav-list>
 
-
       </mat-drawer>
     
       <mat-toolbar color="primary" class="toolbar" mat-elevation-z8>
-      <!--
-         <button mat-icon-button (click)="drawer.toggle()">
-           <mat-icon>menu</mat-icon>
-         </button>
-       -->
+ 
          <button
            class="hamburger hamburger--slider"
            [class.is-active]="drawer.opened"
@@ -44,14 +87,15 @@
          </button>
 
       </mat-toolbar>
-     
+
+        <mat-sidenav-content>
+          <router-outlet></router-outlet>
+       </mat-sidenav-content>    
     
     </mat-drawer-container>
 
-
-
  </div>
- 
+  -->
 
  
 

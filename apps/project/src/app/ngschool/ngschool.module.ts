@@ -30,6 +30,8 @@ import { LoginComponent } from './components/rxjscourse/login/login.component';
 import { RegisterComponent } from './components/rxjscourse/register/register.component';
 import { AboutComponent } from './components/rxjscourse/about/about.component';
 import { TensorflowModule } from './tensorflow/tensorflow.module';
+import { ObjectDetectionComponent } from './tensorflow/object-detection/object-detection.component';
+
 @NgModule({
   declarations: [
     NgschoolComponent,
@@ -45,7 +47,8 @@ import { TensorflowModule } from './tensorflow/tensorflow.module';
     EidtCourseDialogComponent,
     LoginComponent,
     RegisterComponent,
-    AboutComponent
+    AboutComponent,
+    ObjectDetectionComponent
 
 
   ],
@@ -62,7 +65,7 @@ import { TensorflowModule } from './tensorflow/tensorflow.module';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    TensorflowModule,
+    TensorflowModule
   ],
   entryComponents: [
     EidtCourseDialogComponent,

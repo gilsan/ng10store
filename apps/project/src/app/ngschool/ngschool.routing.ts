@@ -17,6 +17,7 @@ import { CourseResolver } from './components/rxjscourse/course.resolver';
 import { LoginComponent } from './components/rxjscourse/login/login.component';
 import { GestureComponent } from './tensorflow/gesture/gesture.component';
 
+
 const routes: Routes = [
   {
     path: '', component: NgschoolComponent, children: [
@@ -42,19 +43,16 @@ const routes: Routes = [
       },
       {
         path: 'tensor', children: [
-          { path: 'gesture', component: GestureComponent },
+          { path: '', loadChildren: () => import('./tensorflow/tensorflow.module').then((m) => m.TensorflowModule), data: { preload: true } },
         ]
       }
     ]
   },
-
-
 ];
 
 
 @NgModule({
   imports: [
-
 
     RouterModule.forChild(routes),
   ],
