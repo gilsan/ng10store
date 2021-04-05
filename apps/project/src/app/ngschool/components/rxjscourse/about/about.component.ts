@@ -50,7 +50,12 @@ export class AboutComponent implements OnInit {
     */
     this.db.collection('courses', ref => ref.orderBy("seqNo")).get()
       .subscribe(snapshot => {
-        console.log(snapshot.);
+        console.log(snapshot);
+        snapshot.forEach(doc => {
+          console.log(doc.data());
+        });
+
+        console.log(snapshot.docs[0].id);
         console.log('empty: ', snapshot.empty);
       })
 
