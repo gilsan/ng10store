@@ -10,9 +10,18 @@
         <li [routerLink]="['overlay']">Overlay</li>
          
         <li [routerLink]="['table']">Table</li>
-        <!--
-        <li [routerLink]="['']"></li>   
-        -->
+ 
+        <li>
+            <button mat-button [matMenuTriggerFor]="d3visual">D3 시각화</button>
+            <mat-menu #d3visual="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="vertebrates">그래프</button>
+            </mat-menu>
+            <mat-menu #vertebrates="matMenu">
+              <button mat-menu-item routerLink="d3/piechart">파이챠트</button>
+              <button mat-menu-item>막대그래프</button>
+            </mat-menu>
+        </li>   
+   
         <li [routerLink]="['/home']">홈</li>
     </ul>
 </mat-toolbar>

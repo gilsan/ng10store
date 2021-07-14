@@ -13,7 +13,9 @@ import { NgmaterialComponent } from './ngmaterial.component';
 import { OverlayComponent } from './overlay/overlay.component';
 import { TableComponent } from './table/table.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { PiechartComponent } from './components/piechart/piechart.component';
+import { PieCustomDataComponent } from './components/pie-custom-data/pie-custom-data.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -25,6 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PortalComponent,
     OverlayComponent,
     TableComponent,
+    PiechartComponent,
+    PieCustomDataComponent,
+
   ],
   imports: [
 
@@ -36,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgmaterialRoutingModule,
     MaterialModule,
     NgbModule,
+    FlexLayoutModule
   ]
 })
 

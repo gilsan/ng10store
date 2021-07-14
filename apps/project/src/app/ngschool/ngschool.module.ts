@@ -31,6 +31,8 @@ import { RegisterComponent } from './components/rxjscourse/register/register.com
 import { AboutComponent } from './components/rxjscourse/about/about.component';
 import { TensorflowModule } from './tensorflow/tensorflow.module';
 import { ObjectDetectionComponent } from './tensorflow/object-detection/object-detection.component';
+import { CameraComponent } from './components/camera/camera.component';
+import { GlassesComponent } from './components/glasses/glasses.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ObjectDetectionComponent } from './tensorflow/object-detection/object-d
     LoginComponent,
     RegisterComponent,
     AboutComponent,
-    ObjectDetectionComponent
+    ObjectDetectionComponent,
+    CameraComponent,
+    GlassesComponent
 
 
   ],

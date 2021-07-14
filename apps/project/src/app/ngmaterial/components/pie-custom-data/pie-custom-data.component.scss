@@ -1,0 +1,19 @@
+.tile {
+  background: lightblue;
+}
+
+mat-grid-tile {
+  padding-top: 33px !important;
+
+}
+
+.pie {
+
+  margin-top: 5px;
+
+  &_table {
+    overflow: y-scroll;
+    width: 400px;
+    height: 400px;
+  }
+}

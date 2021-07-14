@@ -16,6 +16,8 @@ import { CourseComponent } from './components/rxjscourse/course/course.component
 import { CourseResolver } from './components/rxjscourse/course.resolver';
 import { LoginComponent } from './components/rxjscourse/login/login.component';
 import { GestureComponent } from './tensorflow/gesture/gesture.component';
+import { CameraComponent } from './components/camera/camera.component';
+import { GlassesComponent } from './components/glasses/glasses.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,13 @@ const routes: Routes = [
         path: 'tensor', children: [
           { path: '', loadChildren: () => import('./tensorflow/tensorflow.module').then((m) => m.TensorflowModule), data: { preload: true } },
         ]
+      },
+      {
+        path: 'opencv', children: [
+          { path: 'camera', component: CameraComponent },
+          { path: 'glasses', component: GlassesComponent }
+        ]
+
       }
     ]
   },

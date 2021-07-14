@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../../firestore.service';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { formatCurrency } from '@angular/common';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -12,6 +13,7 @@ import { formatCurrency } from '@angular/common';
 })
 export class AboutComponent implements OnInit {
 
+  friendsRef: AngularFirestoreCollection = this.db.collection('friends');
   constructor(
     private firebaseService: FirestoreService,
     private db: AngularFirestore
@@ -47,17 +49,28 @@ export class AboutComponent implements OnInit {
         console.log('data() ', snap.payload.data());
         console.log('=== snapshotChange ====');
       });
-    */
+   */
     this.db.collection('courses', ref => ref.orderBy("seqNo")).get()
       .subscribe(snapshot => {
         console.log(snapshot);
-        snapshot.forEach(doc => {
-          console.log(doc.data());
-        });
-
+        // snapshot.forEach(doc => {
+        //   console.log(doc.data());
+        // });
+        const lists = snapshot.docs[0].data();
+        console.log('[===== ]', lists);
         console.log(snapshot.docs[0].id);
         console.log('empty: ', snapshot.empty);
       })
+
+    // const collRef = this.db.collection('courses').ref;
+    // const queryRef = collRef.where('seqNo', '==', 1);
+
+    // queryRef.get().then((snapShot) => {
+    //   console.log(snapShot.docs[0].data().category);
+    //   if (!snapShot.empty) {
+
+    //   }
+    // })
 
     // this.db.collection('/courses').snapshotChanges()
     //   .subscribe(snaps => {
@@ -90,7 +103,18 @@ export class AboutComponent implements OnInit {
 
   }
 
-  onAddCollection() { }
+
+  onAddCollection() {
+    from(this.friendsRef.add({ email: 'test@test.com' }))
+      .pipe(
+        tap(result => console.log(result)),
+        map((docRef) => {
+          return from(this.friendsRef.doc(docRef.id).collection('myfriend').add({ email: 'request email' }));
+        })
+      ).subscribe(data => {
+        console.log('data ', data);
+      });
+  }
 
   onReadCollectionGroup() {
 
@@ -104,6 +128,19 @@ export class AboutComponent implements OnInit {
           console.log(snap.id);
           console.log(snap.data());
         })
+      })
+  }
+
+  onTest() {
+
+    const msg = [{ sender: "han@test.com", receiver: "jung@test.com" }];
+
+    from([msg])
+      .pipe(
+        map(requests => requests.filter((request: any) => request.uid !== undefined)),
+      )
+      .subscribe(data => {
+        console.log(data);
       })
   }
 

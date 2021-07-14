@@ -22,7 +22,7 @@
             <button clrDropdownItem routerLink="hostlistener" routerLinkActive="active">Directive</button>
             <button clrDropdownItem routerLink="injection-token" routerLinkActive="active">InjectionToken</button>
             <button clrDropdownItem routerLink="local-storage" routerLinkActive="active">LocalStorage</button>
-            <button clrDropdownItem routerLink="table-resizable" routerLinkActive="active">테이블 크기조정</button> 
+            <button clrDropdownItem routerLink="table-resizable" routerLinkActive="active">테이블 크기조정</button>
             <button clrDropdownItem routerLink="rxjscourse" routerLinkActive="active">RxJS배우기&Firebase</button>
             <!--  <button clrDropdownItem routerLink="joinatomII" routerLinkActive="active">원자결합II</button> -->
 
@@ -76,7 +76,7 @@
 
     <clr-dropdown [clrCloseMenuOnItemClick]="false">
       <button class="btn btn-link" clrDropdownToggle>
-        Tensorflow
+        Tensorflow/OpenCV
       </button>
       <clr-dropdown-menu *clrIfOpen>
         <clr-dropdown>
@@ -85,7 +85,14 @@
               <button clrDropdownItem routerLink="tensor" routerLinkActive="active">제스쳐</button>
            </clr-dropdown-menu>
         </clr-dropdown>
-        <!-- 
+        <clr-dropdown>
+           <button clrDropdownTrigger>OpenCV</button>
+           <clr-dropdown-menu>
+              <button clrDropdownItem routerLink="opencv/camera" routerLinkActive="active">Camera</button>
+              <button clrDropdownItem routerLink="opencv/glasses" routerLinkActive="active">CORS시험용</button>
+           </clr-dropdown-menu>
+        </clr-dropdown>
+        <!--
         <clr-dropdown>
           <button clrDropdownTrigger>TypeScript</button>
           <clr-dropdown-menu>
@@ -104,11 +111,11 @@
 
   </div>
   <div class="header-actions" *ngIf="!(firestoreService.isLoggedIn$ | async)">
-     <a routerLink="login" class="active nav-link" routerLinkActive="active"><span class="nav-text">로그인</span></a> 
+     <a routerLink="login" class="active nav-link" routerLinkActive="active"><span class="nav-text">로그인</span></a>
   </div>
   <div class="header-actions" *ngIf="(firestoreService.isLoggedIn$ | async)">
-      <span class="nav-text nav-link nav-logout" (click)="logout()">로그아웃</span> 
-  </div>  
+      <span class="nav-text nav-link nav-logout" (click)="logout()">로그아웃</span>
+  </div>
   <div class="header-actions">
     <a routerLink="/home" class="nav-link nav-icon" aria-label="settings">
       <i class="fas fa-arrow-left"></i>

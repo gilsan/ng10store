@@ -1,0 +1,53 @@
+<div fxLayout="row">
+      <div fxFlex="20%" style="margin-left: 3%;margin-top: 10px;">
+        <h1>Pie Chart</h1>
+       
+           <div fxLaout="column">
+              <div>
+                 <mat-form-field appearance="fill">
+                      <mat-label>제목</mat-label>
+                      <input matInput type="text" [(ngModel)]="newLabel">
+                 </mat-form-field>
+              </div>
+
+              <div>
+                 <mat-form-field appearance="fill">
+                      <mat-label>값</mat-label>
+                      <input matInput type="text" [(ngModel)]="newValue">
+                 </mat-form-field>
+              </div>
+              <div>
+                 <button mat-flat-button color="primary" (click)="addData()">확인</button>
+              </div>
+           </div>    
+      </div>
+
+</div>
+
+ 
+   <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayoutGap="50px"  class="pie" >
+
+  
+      <div fxFlex="30%" style="margin-left: 3%;margin-top: 10px;width:400px; height:400px;">
+         <app-piechart></app-piechart>
+      </div>
+     
+      <div fxFlex="50%" class="pie_table">
+          <table class="table table-striped">
+             <thead>
+                 <tr>
+                     <td>Label</td>
+                     <td>Value</td>
+                 </tr>
+             </thead>
+             <tbody>
+               <tr *ngFor="let d of data">
+                 <td [innerHTML]="d.label">
+                 <td [innerHTML]="d.value">
+               </tr>
+          </table>
+      </div>
+   
+   </div>
+
+
