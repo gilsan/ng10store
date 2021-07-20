@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -23,8 +23,11 @@ export class OpencvService {
   }
 
   fileupload(formData: FormData): Observable<any> {
-    console.log(formData.get('image'));
-    return this.http.post(`${this.url}/upload/file/`, formData);
+    return this.http.post(`${this.url}/glasses/image/`, formData);
+  }
+
+  getPhoto(pk: string): Observable<any> {
+    return this.http.get(`${this.url}/glasses/image/${pk}`);
   }
 
   getGlassesListAll(): Observable<any> {
@@ -56,6 +59,14 @@ export class OpencvService {
 
   deleteGlasses(): Observable<any> {
     return this.http.delete(`${this.url}/glasses/3`);
+  }
+
+  getTypeImage(action: string, imageName: string): Observable<any> {
+    const params = new HttpParams()
+      .set('action', action)
+      .set('imageName', imageName);
+
+    return this.http.post(`${this.url}/glasses/image/`, { params, responseType: 'blob' })
   }
 
 

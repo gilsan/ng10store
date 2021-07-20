@@ -20,7 +20,7 @@ export class CameraComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-
+    this.url = 'http://localhost:8000/camera/';
   }
 
   ngOnDestroy(): void {

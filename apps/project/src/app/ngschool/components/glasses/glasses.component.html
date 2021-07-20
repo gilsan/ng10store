@@ -1,6 +1,35 @@
 
   <form>
     <input (change)="fileUpload($event)" type="file"  #uploadfile multiple />
-    <button (click)="onConfirm()">Upload!</button>
+    <!-- <button (click)="onConfirm()">Upload!</button> -->
+    <div class="block">
+       <div>
+          <div class="block_input">
+            <label class="required">제목:</label>
+            <input type="text" class="vTextField"  #title (change)="onTitle(title.value)">
+          </div>
+          <div class="block_input">
+            <label class="required">개요:</label>
+            <input type="text" class="vTextField" maxlength="200" #desc (change)="onDesc(desc.value)">
+          </div>
+       </div>
+    </div>
+
   </form>
-<button type="button" (click)="onClasses()">Click Me!</button>
+  <div class="buttons">
+      <button type="button" (click)="onImages('NO_FILTER')">no filter</button>
+      <button type="button" (click)="onImages('COLORIZED')">colorized</button>
+      <button type="button" (click)="onImages('GRAYSCALE')">GRAYSCALE</button>
+      <button type="button" (click)="onImages('BLURRED')">blurred</button>
+      <button type="button" (click)="onImages('BINARY')">binary</button>
+      <button type="button" (click)="onImages('INVERT')">invert</button>
+
+  </div>
+
+
+   <div *ngIf="isShow">
+      <img class="img_box" [src]="url" />
+  </div>
+
+
+
